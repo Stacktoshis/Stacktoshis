@@ -1,5 +1,7 @@
+
 import logging
 import random
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackContext, CallbackQueryHandler
 
@@ -162,7 +164,10 @@ async def take_turn(update: Update):
 
 # Main Function
 def main():
-    application = Application.builder().token("BOT_TOKEN").build()
+    BOT_TOKEN = os.getenv("BOT_TOKEN")  # Get the token from environment variables
+    WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # Get the webhook URL from environment variables
+
+    application = Application.builder().token(BOT_TOKEN).build()
 
     # Handlers
     application.add_handler(CommandHandler("start", start))
