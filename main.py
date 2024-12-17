@@ -162,7 +162,7 @@ async def take_turn(update: Update):
 
 # Main Function
 def main():
-    application = Application.builder().token("8108245515:AAEnFw5hJPgp81Pqg9SbEqm6fZeoKq12fUs").build()
+    application = Application.builder().token("BOT_TOKEN").build()
 
     # Handlers
     application.add_handler(CommandHandler("start", start))
